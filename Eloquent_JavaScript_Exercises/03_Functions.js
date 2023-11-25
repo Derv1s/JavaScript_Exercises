@@ -42,4 +42,19 @@ function countChar(str, char){
     return numChar;
 }
 
+function recursiveCountChar(str, char){
+    if( str.length == 0) return 0;
+    if( str.length == 1){
+        if( str[0] == char) return 1;
+        else return 0;
+    }
+
+    let count = 0;
+    if( str[0] == char) count += 1;
+
+    return count + recursiveCountChar(str.slice(1), char);
+}
+
+console.log(recursiveCountChar("Berkarryr", "r"));
+
 console.log(countChar("kakkerlak", "k")); // 4
