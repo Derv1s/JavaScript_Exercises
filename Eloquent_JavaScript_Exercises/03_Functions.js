@@ -55,6 +55,14 @@ function recursiveCountChar(str, char){
     return count + recursiveCountChar(str.slice(1), char);
 }
 
+shorterRecursiveCountChar = (str, ch) => {
+    if (str.length == 0) return 0;
+    const charCountAtFirstChar = str[0] == ch ? 1 : 0;
+    if (str.length == 1) return charCountAtFirstChar;
+
+    return charCountAtFirstChar + shorterRecursiveCountChar(str.slice(1), ch);
+}
+
 console.log(recursiveCountChar("Berkarryr", "r"));
 
 console.log(countChar("kakkerlak", "k")); // 4
